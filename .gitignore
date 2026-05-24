@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.DS_Store
+Thumbs.db
+
+# Local progress (don't commit personal data)
+data/progress.json
+config.json
+
+# IDE
+.vscode/
+.idea/

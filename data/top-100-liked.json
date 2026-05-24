@@ -1,0 +1,1326 @@
+{
+  "slug": "top-100-liked",
+  "name": "LeetCode 热题 100",
+  "total": 100,
+  "fetched_at": "2026-05-24 23:35:23",
+  "problems": [
+    {
+      "id": "1",
+      "titleSlug": "two-sum",
+      "title": "两数之和",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "哈希",
+      "tags": [
+        "Array",
+        "Hash Table"
+      ]
+    },
+    {
+      "id": "49",
+      "titleSlug": "group-anagrams",
+      "title": "字母异位词分组",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "哈希",
+      "tags": [
+        "Array",
+        "Hash Table",
+        "String",
+        "Sorting"
+      ]
+    },
+    {
+      "id": "128",
+      "titleSlug": "longest-consecutive-sequence",
+      "title": "最长连续序列",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "哈希",
+      "tags": [
+        "Union Find",
+        "Array",
+        "Hash Table"
+      ]
+    },
+    {
+      "id": "283",
+      "titleSlug": "move-zeroes",
+      "title": "移动零",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "双指针",
+      "tags": [
+        "Array",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "11",
+      "titleSlug": "container-with-most-water",
+      "title": "盛最多水的容器",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "双指针",
+      "tags": [
+        "Greedy",
+        "Array",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "15",
+      "titleSlug": "3sum",
+      "title": "三数之和",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "双指针",
+      "tags": [
+        "Array",
+        "Two Pointers",
+        "Sorting"
+      ]
+    },
+    {
+      "id": "42",
+      "titleSlug": "trapping-rain-water",
+      "title": "接雨水",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "双指针",
+      "tags": [
+        "Stack",
+        "Array",
+        "Two Pointers",
+        "Dynamic Programming",
+        "Monotonic Stack"
+      ]
+    },
+    {
+      "id": "3",
+      "titleSlug": "longest-substring-without-repeating-characters",
+      "title": "无重复字符的最长子串",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "滑动窗口",
+      "tags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ]
+    },
+    {
+      "id": "438",
+      "titleSlug": "find-all-anagrams-in-a-string",
+      "title": "找到字符串中所有字母异位词",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "滑动窗口",
+      "tags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ]
+    },
+    {
+      "id": "560",
+      "titleSlug": "subarray-sum-equals-k",
+      "title": "和为 K 的子数组",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "子串",
+      "tags": [
+        "Array",
+        "Hash Table",
+        "Prefix Sum"
+      ]
+    },
+    {
+      "id": "239",
+      "titleSlug": "sliding-window-maximum",
+      "title": "滑动窗口最大值",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "子串",
+      "tags": [
+        "Queue",
+        "Array",
+        "Sliding Window",
+        "Monotonic Queue",
+        "Heap (Priority Queue)"
+      ]
+    },
+    {
+      "id": "76",
+      "titleSlug": "minimum-window-substring",
+      "title": "最小覆盖子串",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "子串",
+      "tags": [
+        "Hash Table",
+        "String",
+        "Sliding Window"
+      ]
+    },
+    {
+      "id": "53",
+      "titleSlug": "maximum-subarray",
+      "title": "最大子数组和",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "普通数组",
+      "tags": [
+        "Array",
+        "Divide and Conquer",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "56",
+      "titleSlug": "merge-intervals",
+      "title": "合并区间",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "普通数组",
+      "tags": [
+        "Array",
+        "Sorting"
+      ]
+    },
+    {
+      "id": "189",
+      "titleSlug": "rotate-array",
+      "title": "轮转数组",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "普通数组",
+      "tags": [
+        "Array",
+        "Math",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "238",
+      "titleSlug": "product-of-array-except-self",
+      "title": "除了自身以外数组的乘积",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "普通数组",
+      "tags": [
+        "Array",
+        "Prefix Sum"
+      ]
+    },
+    {
+      "id": "41",
+      "titleSlug": "first-missing-positive",
+      "title": "缺失的第一个正数",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "普通数组",
+      "tags": [
+        "Array",
+        "Hash Table"
+      ]
+    },
+    {
+      "id": "73",
+      "titleSlug": "set-matrix-zeroes",
+      "title": "矩阵置零",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "矩阵",
+      "tags": [
+        "Array",
+        "Hash Table",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "54",
+      "titleSlug": "spiral-matrix",
+      "title": "螺旋矩阵",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "矩阵",
+      "tags": [
+        "Array",
+        "Matrix",
+        "Simulation"
+      ]
+    },
+    {
+      "id": "48",
+      "titleSlug": "rotate-image",
+      "title": "旋转图像",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "矩阵",
+      "tags": [
+        "Array",
+        "Math",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "240",
+      "titleSlug": "search-a-2d-matrix-ii",
+      "title": "搜索二维矩阵 II",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "矩阵",
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Divide and Conquer",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "160",
+      "titleSlug": "intersection-of-two-linked-lists",
+      "title": "相交链表",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Hash Table",
+        "Linked List",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "206",
+      "titleSlug": "reverse-linked-list",
+      "title": "反转链表",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Recursion",
+        "Linked List"
+      ]
+    },
+    {
+      "id": "234",
+      "titleSlug": "palindrome-linked-list",
+      "title": "回文链表",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Stack",
+        "Recursion",
+        "Linked List",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "141",
+      "titleSlug": "linked-list-cycle",
+      "title": "环形链表",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Hash Table",
+        "Linked List",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "142",
+      "titleSlug": "linked-list-cycle-ii",
+      "title": "环形链表 II",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Hash Table",
+        "Linked List",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "21",
+      "titleSlug": "merge-two-sorted-lists",
+      "title": "合并两个有序链表",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Recursion",
+        "Linked List"
+      ]
+    },
+    {
+      "id": "2",
+      "titleSlug": "add-two-numbers",
+      "title": "两数相加",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Recursion",
+        "Linked List",
+        "Math"
+      ]
+    },
+    {
+      "id": "19",
+      "titleSlug": "remove-nth-node-from-end-of-list",
+      "title": "删除链表的倒数第 N 个结点",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Linked List",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "24",
+      "titleSlug": "swap-nodes-in-pairs",
+      "title": "两两交换链表中的节点",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Recursion",
+        "Linked List"
+      ]
+    },
+    {
+      "id": "25",
+      "titleSlug": "reverse-nodes-in-k-group",
+      "title": "K 个一组翻转链表",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Recursion",
+        "Linked List"
+      ]
+    },
+    {
+      "id": "138",
+      "titleSlug": "copy-list-with-random-pointer",
+      "title": "随机链表的复制",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Hash Table",
+        "Linked List"
+      ]
+    },
+    {
+      "id": "148",
+      "titleSlug": "sort-list",
+      "title": "排序链表",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Linked List",
+        "Two Pointers",
+        "Divide and Conquer",
+        "Sorting",
+        "Merge Sort"
+      ]
+    },
+    {
+      "id": "23",
+      "titleSlug": "merge-k-sorted-lists",
+      "title": "合并 K 个升序链表",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Linked List",
+        "Divide and Conquer",
+        "Heap (Priority Queue)",
+        "Merge Sort"
+      ]
+    },
+    {
+      "id": "146",
+      "titleSlug": "lru-cache",
+      "title": "LRU 缓存",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "链表",
+      "tags": [
+        "Design",
+        "Hash Table",
+        "Linked List",
+        "Doubly-Linked List"
+      ]
+    },
+    {
+      "id": "94",
+      "titleSlug": "binary-tree-inorder-traversal",
+      "title": "二叉树的中序遍历",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Stack",
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "104",
+      "titleSlug": "maximum-depth-of-binary-tree",
+      "title": "二叉树的最大深度",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "226",
+      "titleSlug": "invert-binary-tree",
+      "title": "翻转二叉树",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "101",
+      "titleSlug": "symmetric-tree",
+      "title": "对称二叉树",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "543",
+      "titleSlug": "diameter-of-binary-tree",
+      "title": "二叉树的直径",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "102",
+      "titleSlug": "binary-tree-level-order-traversal",
+      "title": "二叉树的层序遍历",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Breadth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "108",
+      "titleSlug": "convert-sorted-array-to-binary-search-tree",
+      "title": "将有序数组转换为二叉搜索树",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Binary Search Tree",
+        "Array",
+        "Divide and Conquer",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "98",
+      "titleSlug": "validate-binary-search-tree",
+      "title": "验证二叉搜索树",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Search Tree",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "230",
+      "titleSlug": "kth-smallest-element-in-a-bst",
+      "title": "二叉搜索树中第 K 小的元素",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Search Tree",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "199",
+      "titleSlug": "binary-tree-right-side-view",
+      "title": "二叉树的右视图",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "114",
+      "titleSlug": "flatten-binary-tree-to-linked-list",
+      "title": "二叉树展开为链表",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Stack",
+        "Tree",
+        "Depth-First Search",
+        "Linked List",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "105",
+      "titleSlug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+      "title": "从前序与中序遍历序列构造二叉树",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Array",
+        "Hash Table",
+        "Divide and Conquer",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "437",
+      "titleSlug": "path-sum-iii",
+      "title": "路径总和 III",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "236",
+      "titleSlug": "lowest-common-ancestor-of-a-binary-tree",
+      "title": "二叉树的最近公共祖先",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "124",
+      "titleSlug": "binary-tree-maximum-path-sum",
+      "title": "二叉树中的最大路径和",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "二叉树",
+      "tags": [
+        "Tree",
+        "Depth-First Search",
+        "Dynamic Programming",
+        "Binary Tree"
+      ]
+    },
+    {
+      "id": "200",
+      "titleSlug": "number-of-islands",
+      "title": "岛屿数量",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "图论",
+      "tags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union Find",
+        "Array",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "994",
+      "titleSlug": "rotting-oranges",
+      "title": "腐烂的橘子",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "图论",
+      "tags": [
+        "Breadth-First Search",
+        "Array",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "207",
+      "titleSlug": "course-schedule",
+      "title": "课程表",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "图论",
+      "tags": [
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph",
+        "Topological Sort"
+      ]
+    },
+    {
+      "id": "208",
+      "titleSlug": "implement-trie-prefix-tree",
+      "title": "实现 Trie (前缀树)",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "图论",
+      "tags": [
+        "Design",
+        "Trie",
+        "Hash Table",
+        "String"
+      ]
+    },
+    {
+      "id": "46",
+      "titleSlug": "permutations",
+      "title": "全排列",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "Array",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "78",
+      "titleSlug": "subsets",
+      "title": "子集",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "Bit Manipulation",
+        "Array",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "17",
+      "titleSlug": "letter-combinations-of-a-phone-number",
+      "title": "电话号码的字母组合",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "Hash Table",
+        "String",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "39",
+      "titleSlug": "combination-sum",
+      "title": "组合总和",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "Array",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "22",
+      "titleSlug": "generate-parentheses",
+      "title": "括号生成",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "String",
+        "Dynamic Programming",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "79",
+      "titleSlug": "word-search",
+      "title": "单词搜索",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "Depth-First Search",
+        "Array",
+        "String",
+        "Backtracking",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "131",
+      "titleSlug": "palindrome-partitioning",
+      "title": "分割回文串",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "String",
+        "Dynamic Programming",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "51",
+      "titleSlug": "n-queens",
+      "title": "N 皇后",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "回溯",
+      "tags": [
+        "Array",
+        "Backtracking"
+      ]
+    },
+    {
+      "id": "35",
+      "titleSlug": "search-insert-position",
+      "title": "搜索插入位置",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "二分查找",
+      "tags": [
+        "Array",
+        "Binary Search"
+      ]
+    },
+    {
+      "id": "74",
+      "titleSlug": "search-a-2d-matrix",
+      "title": "搜索二维矩阵",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二分查找",
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "34",
+      "titleSlug": "find-first-and-last-position-of-element-in-sorted-array",
+      "title": "在排序数组中查找元素的第一个和最后一个位置",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二分查找",
+      "tags": [
+        "Array",
+        "Binary Search"
+      ]
+    },
+    {
+      "id": "33",
+      "titleSlug": "search-in-rotated-sorted-array",
+      "title": "搜索旋转排序数组",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二分查找",
+      "tags": [
+        "Array",
+        "Binary Search"
+      ]
+    },
+    {
+      "id": "153",
+      "titleSlug": "find-minimum-in-rotated-sorted-array",
+      "title": "寻找旋转排序数组中的最小值",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "二分查找",
+      "tags": [
+        "Array",
+        "Binary Search"
+      ]
+    },
+    {
+      "id": "4",
+      "titleSlug": "median-of-two-sorted-arrays",
+      "title": "寻找两个正序数组的中位数",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "二分查找",
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Divide and Conquer"
+      ]
+    },
+    {
+      "id": "20",
+      "titleSlug": "valid-parentheses",
+      "title": "有效的括号",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "栈",
+      "tags": [
+        "Stack",
+        "String"
+      ]
+    },
+    {
+      "id": "155",
+      "titleSlug": "min-stack",
+      "title": "最小栈",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "栈",
+      "tags": [
+        "Stack",
+        "Design"
+      ]
+    },
+    {
+      "id": "394",
+      "titleSlug": "decode-string",
+      "title": "字符串解码",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "栈",
+      "tags": [
+        "Stack",
+        "Recursion",
+        "String"
+      ]
+    },
+    {
+      "id": "739",
+      "titleSlug": "daily-temperatures",
+      "title": "每日温度",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "栈",
+      "tags": [
+        "Stack",
+        "Array",
+        "Monotonic Stack"
+      ]
+    },
+    {
+      "id": "84",
+      "titleSlug": "largest-rectangle-in-histogram",
+      "title": "柱状图中最大的矩形",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "栈",
+      "tags": [
+        "Stack",
+        "Array",
+        "Monotonic Stack"
+      ]
+    },
+    {
+      "id": "215",
+      "titleSlug": "kth-largest-element-in-an-array",
+      "title": "数组中的第K个最大元素",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "堆",
+      "tags": [
+        "Array",
+        "Divide and Conquer",
+        "Quickselect",
+        "Sorting",
+        "Heap (Priority Queue)"
+      ]
+    },
+    {
+      "id": "347",
+      "titleSlug": "top-k-frequent-elements",
+      "title": "前 K 个高频元素",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "堆",
+      "tags": [
+        "Array",
+        "Hash Table",
+        "Divide and Conquer",
+        "Bucket Sort",
+        "Counting",
+        "Quickselect",
+        "Sorting",
+        "Heap (Priority Queue)"
+      ]
+    },
+    {
+      "id": "295",
+      "titleSlug": "find-median-from-data-stream",
+      "title": "数据流的中位数",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "堆",
+      "tags": [
+        "Design",
+        "Two Pointers",
+        "Data Stream",
+        "Sorting",
+        "Heap (Priority Queue)"
+      ]
+    },
+    {
+      "id": "121",
+      "titleSlug": "best-time-to-buy-and-sell-stock",
+      "title": "买卖股票的最佳时机",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "贪心算法",
+      "tags": [
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "55",
+      "titleSlug": "jump-game",
+      "title": "跳跃游戏",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "贪心算法",
+      "tags": [
+        "Greedy",
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "45",
+      "titleSlug": "jump-game-ii",
+      "title": "跳跃游戏 II",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "贪心算法",
+      "tags": [
+        "Greedy",
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "763",
+      "titleSlug": "partition-labels",
+      "title": "划分字母区间",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "贪心算法",
+      "tags": [
+        "Greedy",
+        "Hash Table",
+        "Two Pointers",
+        "String"
+      ]
+    },
+    {
+      "id": "70",
+      "titleSlug": "climbing-stairs",
+      "title": "爬楼梯",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Memoization",
+        "Math",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "118",
+      "titleSlug": "pascals-triangle",
+      "title": "杨辉三角",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "198",
+      "titleSlug": "house-robber",
+      "title": "打家劫舍",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "279",
+      "titleSlug": "perfect-squares",
+      "title": "完全平方数",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Breadth-First Search",
+        "Math",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "322",
+      "titleSlug": "coin-change",
+      "title": "零钱兑换",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Breadth-First Search",
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "139",
+      "titleSlug": "word-break",
+      "title": "单词拆分",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Trie",
+        "Memoization",
+        "Array",
+        "Hash Table",
+        "String",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "300",
+      "titleSlug": "longest-increasing-subsequence",
+      "title": "最长递增子序列",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Array",
+        "Binary Search",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "152",
+      "titleSlug": "maximum-product-subarray",
+      "title": "乘积最大子数组",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "416",
+      "titleSlug": "partition-equal-subset-sum",
+      "title": "分割等和子集",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Array",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "32",
+      "titleSlug": "longest-valid-parentheses",
+      "title": "最长有效括号",
+      "difficulty": "HARD",
+      "status": "TO_DO",
+      "category": "动态规划",
+      "tags": [
+        "Stack",
+        "String",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "62",
+      "titleSlug": "unique-paths",
+      "title": "不同路径",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "多维动态规划",
+      "tags": [
+        "Math",
+        "Dynamic Programming",
+        "Combinatorics"
+      ]
+    },
+    {
+      "id": "64",
+      "titleSlug": "minimum-path-sum",
+      "title": "最小路径和",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "多维动态规划",
+      "tags": [
+        "Array",
+        "Dynamic Programming",
+        "Matrix"
+      ]
+    },
+    {
+      "id": "5",
+      "titleSlug": "longest-palindromic-substring",
+      "title": "最长回文子串",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "多维动态规划",
+      "tags": [
+        "Two Pointers",
+        "String",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "1143",
+      "titleSlug": "longest-common-subsequence",
+      "title": "最长公共子序列",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "多维动态规划",
+      "tags": [
+        "String",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "72",
+      "titleSlug": "edit-distance",
+      "title": "编辑距离",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "多维动态规划",
+      "tags": [
+        "String",
+        "Dynamic Programming"
+      ]
+    },
+    {
+      "id": "136",
+      "titleSlug": "single-number",
+      "title": "只出现一次的数字",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "技巧",
+      "tags": [
+        "Bit Manipulation",
+        "Array"
+      ]
+    },
+    {
+      "id": "169",
+      "titleSlug": "majority-element",
+      "title": "多数元素",
+      "difficulty": "EASY",
+      "status": "TO_DO",
+      "category": "技巧",
+      "tags": [
+        "Array",
+        "Hash Table",
+        "Divide and Conquer",
+        "Counting",
+        "Sorting"
+      ]
+    },
+    {
+      "id": "75",
+      "titleSlug": "sort-colors",
+      "title": "颜色分类",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "技巧",
+      "tags": [
+        "Array",
+        "Two Pointers",
+        "Sorting"
+      ]
+    },
+    {
+      "id": "31",
+      "titleSlug": "next-permutation",
+      "title": "下一个排列",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "技巧",
+      "tags": [
+        "Array",
+        "Two Pointers"
+      ]
+    },
+    {
+      "id": "287",
+      "titleSlug": "find-the-duplicate-number",
+      "title": "寻找重复数",
+      "difficulty": "MEDIUM",
+      "status": "TO_DO",
+      "category": "技巧",
+      "tags": [
+        "Bit Manipulation",
+        "Array",
+        "Two Pointers",
+        "Binary Search"
+      ]
+    }
+  ]
+}

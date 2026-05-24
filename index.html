@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeetCode Tracker</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --green: #3fb950;
+  --yellow: #d29922;
+  --red: #f85149;
+  --blue: #58a6ff;
+  --purple: #a371f7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header { text-align: center; padding: 30px 0 20px; }
+.header h1 { font-size: 28px; margin-bottom: 12px; }
+.header .subtitle { color: var(--muted); font-size: 14px; }
+
+/* Top Bar */
+.top-bar {
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.top-bar select, .top-bar input, .top-bar button {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+.top-bar select { cursor: pointer; }
+.top-bar input { width: 170px; }
+.top-bar input:focus, .top-bar select:focus { border-color: var(--blue); }
+.top-bar input::placeholder { color: var(--muted); }
+.top-bar button {
+  cursor: pointer; transition: all 0.2s;
+  white-space: nowrap;
+}
+.top-bar button:hover { border-color: var(--blue); }
+.top-bar .btn-primary { background: #1b2d3d; border-color: var(--blue); color: var(--blue); }
+.top-bar .btn-primary:hover { background: var(--blue); color: #fff; }
+.top-bar .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.top-bar .separator { color: var(--border); margin: 0 4px; }
+
+/* Stats Cards */
+.stats-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.stat-card {
+  flex: 1; min-width: 100px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 10px;
+  text-align: center;
+}
+.stat-card .value { font-size: 28px; font-weight: 700; }
+.stat-card .label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.stat-card.green .value { color: var(--green); }
+.stat-card.yellow .value { color: var(--yellow); }
+.stat-card.red .value { color: var(--red); }
+.stat-card.blue .value { color: var(--blue); }
+
+/* Progress Bar */
+.progress-wrap { margin-bottom: 24px; }
+.progress-wrap .row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+.progress-bar {
+  height: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+}
+.progress-bar .seg { height: 100%; transition: width 0.3s; }
+.progress-bar .seg.done { background: var(--green); }
+.progress-bar .seg.mastered { background: var(--purple); }
+.progress-bar .seg.pending { background: #21262d; }
+
+/* Tabs */
+.tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* Filters */
+.filters { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--blue); color: var(--text); }
+.filter-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* Table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; position: sticky; top: 0; background: var(--bg); }
+tr:hover { background: var(--surface); }
+
+/* Difficulty Badge */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge.Easy { background: #1b3d1b; color: var(--green); }
+.badge.Medium { background: #3d2e00; color: var(--yellow); }
+.badge.Hard { background: #3d1111; color: var(--red); }
+
+/* Status */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.status-SOLVED { background: #1b2d3d; color: var(--blue); }
+.status-MASTERED { background: #2d1b3d; color: var(--purple); }
+.status-PENDING { background: #21262d; color: var(--muted); }
+
+/* Review Dots */
+.reviews { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.review-dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  font-size: 10px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: default;
+  background: #21262d;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.review-dot.done { background: #1b3d1b; border-color: var(--green); color: var(--green); }
+.review-dot.due { background: #3d2e00; border-color: var(--yellow); color: var(--yellow); cursor: pointer; animation: pulse 2s infinite; }
+.review-dot.overdue { background: #3d1111; border-color: var(--red); color: var(--red); cursor: pointer; }
+.review-dot.future { background: #21262d; border-color: var(--border); color: var(--muted); }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* Action buttons */
+.action-btn {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.action-btn:hover { border-color: var(--blue); }
+.action-btn.review { background: #1b2d3d; border-color: var(--blue); color: var(--blue); }
+.action-btn.review:hover { background: var(--blue); color: #fff; }
+.action-btn.solved { border-color: var(--green); color: var(--green); }
+.action-btn.solved:hover { background: var(--green); color: #fff; }
+
+/* Loading / Error */
+.loading { text-align: center; padding: 60px; color: var(--muted); }
+.error { text-align: center; padding: 60px; color: var(--red); }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 20px; right: 20px;
+  padding: 12px 24px; border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px;
+  opacity: 0; transform: translateY(10px);
+  transition: all 0.3s; z-index: 999;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { border-color: var(--green); }
+.toast.error { border-color: var(--red); }
+
+/* Link */
+.problem-link { color: var(--blue); text-decoration: none; }
+.problem-link:hover { text-decoration: underline; }
+
+/* Mastery stars */
+.mastery-stars { color: var(--yellow); font-size: 13px; letter-spacing: 1px; }
+
+/* Footer */
+.footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: 12px; }
+.footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 LeetCode Progress Tracker</h1>
+  <div class="subtitle" id="subtitle">Loading...</div>
+</div>
+
+<div class="top-bar">
+  <select id="plan-select" onchange="switchPlan()">
+    <option value="top-interview-150">面试经典 150 题</option>
+    <option value="top-100-liked">热题 100</option>
+  </select>
+  <input type="text" id="username-input" placeholder="LeetCode ID (sync)" />
+  <button class="btn-primary" id="sync-btn" onclick="doSync()">🔄 Sync</button>
+  <span class="separator">|</span>
+  <button onclick="doExport()">📥 Export</button>
+  <button onclick="doImport()">📤 Import</button>
+  <button onclick="doReset()">🗑️ Reset</button>
+  <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)" />
+</div>
+
+<div id="loading" class="loading">⏳ Loading...</div>
+<div id="error" class="error" style="display:none"></div>
+<div id="main" style="display:none">
+
+  <div class="stats-row" id="stats-row"></div>
+
+  <div class="progress-wrap">
+    <div class="row"><span>Overall Progress</span><span id="progress-text">0%</span></div>
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('all')">All Problems</button>
+    <button class="tab" onclick="switchTab('due')">Due Reviews 🔔</button>
+    <button class="tab" onclick="switchTab('category')">By Category</button>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" onclick="setFilter('all')">All</button>
+    <button class="filter-btn" onclick="setFilter('Easy')">Easy</button>
+    <button class="filter-btn" onclick="setFilter('Medium')">Medium</button>
+    <button class="filter-btn" onclick="setFilter('Hard')">Hard</button>
+    <button class="filter-btn" onclick="setFilter('PENDING')">Pending</button>
+    <button class="filter-btn" onclick="setFilter('SOLVED')">Solved</button>
+    <button class="filter-btn" onclick="setFilter('MASTERED')">Mastered</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Problem</th>
+          <th>Difficulty</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Mastery</th>
+          <th>Reviews</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <span id="updated-info"></span> &nbsp;|&nbsp;
+  Progress saved in your browser &nbsp;|&nbsp;
+  <a href="https://github.com" target="_blank">GitHub</a>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============ STATE ============
+const REVIEW_INTERVALS = [1, 3, 7, 15, 30];
+const REVIEW_LABELS = ['R1', 'R2', 'R3', 'R4', 'R5'];
+const LEETCODE_BASE = 'https://leetcode.cn/problems/';
+const LS_PREFIX = 'lc-tracker-';
+
+let planSlug = 'top-interview-150';
+let planData = null;          // the plan JSON (from data/*.json)
+let progress = {};            // { problemId: { status, solved_date, mastery, reviews, notes } }
+let currentTab = 'all';
+let currentFilter = 'all';
+
+// ============ HELPERS ============
+function today() { return new Date().toISOString().slice(0, 10); }
+function lsKey() { return LS_PREFIX + planSlug; }
+
+function loadProgress() {
+  try {
+    progress = JSON.parse(localStorage.getItem(lsKey())) || {};
+  } catch (e) {
+    progress = {};
+  }
+}
+
+function saveProgress() {
+  localStorage.setItem(lsKey(), JSON.stringify(progress));
+}
+
+function getProblems() {
+  if (!planData || !planData.problems) return [];
+  return planData.problems.map(p => {
+    const extra = progress[p.id] || {};
+    return { ...p, ...extra, id: p.id };
+  });
+}
+
+function getReviewStatus(p) {
+  const td = today();
+  if (p.status !== 'SOLVED' && p.status !== 'MASTERED') return { status: 'none' };
+
+  let firstLabel = '', firstDate = '';
+  for (const l of REVIEW_LABELS) {
+    const ds = p.reviews?.[l];
+    if (!ds) continue;
+    if (ds === 'DONE') continue;
+    if (ds <= td) {
+      return { status: ds < td ? 'overdue' : 'due', label: l, dueDate: ds };
+    }
+    if (!firstDate || ds < firstDate) { firstDate = ds; firstLabel = l; }
+  }
+  if (firstLabel) return { status: 'future', label: firstLabel, dueDate: firstDate };
+  return { status: 'done' };
+}
+
+// ============ DATA LOADING ============
+async function loadPlan(slug) {
+  planSlug = slug;
+  try {
+    const base = location.pathname.replace(/\/[^/]*$/, '') || '.';
+    const url = `${base}/data/${slug}.json`;
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error(`Cannot load plan: ${slug}.json (HTTP ${resp.status})`);
+    planData = await resp.json();
+    loadProgress();
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    document.getElementById('subtitle').textContent =
+      `${planData.name || slug} | ${planData.total} problems`;
+    document.getElementById('updated-info').textContent =
+      `Plan fetched: ${planData.fetched_at || 'N/A'}`;
+    document.getElementById('plan-select').value = slug;
+    renderAll();
+  } catch (err) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+    document.getElementById('error').innerHTML = `
+      <p>❌ ${err.message}</p>
+      <p style="margin-top:12px;font-size:13px;color:var(--muted)">
+        Run locally: <code>python3 fetch_plan.py --plan ${slug}</code>
+      </p>`;
+  }
+}
+
+function switchPlan() {
+  const slug = document.getElementById('plan-select').value;
+  if (slug !== planSlug) {
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('loading').textContent = '⏳ Switching plan...';
+    loadPlan(slug);
+  }
+}
+
+// ============ ACTIONS ============
+function markSolved(id) {
+  const p = progress[id] || {};
+  const td = today();
+  if (p.status === 'SOLVED' || p.status === 'MASTERED') {
+    // Undo
+    progress[id] = { status: 'PENDING', solved_date: null, mastery: 0, reviews: {} };
+    saveProgress();
+    showToast(`🔄 #${id} reset to PENDING`, 'success');
+  } else {
+    // Mark solved
+    const reviews = {};
+    REVIEW_LABELS.forEach((l, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() + REVIEW_INTERVALS[i]);
+      reviews[l] = d.toISOString().slice(0, 10);
+    });
+    progress[id] = {
+      status: 'SOLVED',
+      solved_date: p.solved_date || td,
+      mastery: Math.max(p.mastery || 0, 1),
+      reviews,
+      notes: p.notes || ''
+    };
+    saveProgress();
+    showToast(`✅ #${id} marked SOLVED, reviews scheduled`, 'success');
+  }
+  renderAll();
+}
+
+function doReview(id) {
+  const p = progress[id];
+  if (!p) return;
+  const td = today();
+  let label = null;
+  for (const l of REVIEW_LABELS) {
+    const ds = p.reviews?.[l];
+    if (ds && ds !== 'DONE' && ds <= td) { label = l; break; }
+  }
+  if (!label) { showToast('No review due today', 'error'); return; }
+
+  p.reviews[label] = 'DONE';
+  p.mastery = Math.min((p.mastery || 0) + 1, 5);
+  if (p.mastery >= 4) p.status = 'MASTERED';
+  saveProgress();
+  showToast(`✅ Review ${label} done! Mastery: ${p.mastery}/5`, 'success');
+  renderAll();
+}
+
+// ============ IMPORT / EXPORT / RESET ============
+function doExport() {
+  const data = {
+    plan: planSlug,
+    exported_at: new Date().toISOString(),
+    username: getUsername(),
+    progress,
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `lc-progress-${planSlug}-${today()}.json`;
+  a.click();
+  showToast('📥 Progress exported!', 'success');
+}
+
+function doImport() {
+  document.getElementById('import-file').click();
+}
+
+function handleImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.plan && data.plan !== planSlug) {
+        if (!confirm(`Import is for plan "${data.plan}" but you're viewing "${planSlug}". Switch plan?`)) return;
+        document.getElementById('plan-select').value = data.plan;
+        switchPlan();
+        // Wait for load, then import
+        setTimeout(() => {
+          progress = data.progress || {};
+          saveProgress();
+          renderAll();
+          showToast('📤 Progress imported!', 'success');
+        }, 500);
+        return;
+      }
+      progress = data.progress || {};
+      if (data.username) saveUsername(data.username);
+      saveProgress();
+      renderAll();
+      showToast('📤 Progress imported!', 'success');
+    } catch (err) {
+      showToast('❌ Invalid JSON file', 'error');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function doReset() {
+  if (!confirm('Delete ALL progress for this plan? This cannot be undone.')) return;
+  progress = {};
+  saveProgress();
+  renderAll();
+  showToast('🗑️ All progress cleared', 'success');
+}
+
+// ============ USERNAME & SYNC ============
+function getUsername() {
+  return localStorage.getItem(LS_PREFIX + 'username') || '';
+}
+
+function saveUsername(u) {
+  localStorage.setItem(LS_PREFIX + 'username', u);
+  document.getElementById('username-input').value = u;
+}
+
+function loadUsername() {
+  const u = getUsername();
+  if (u) document.getElementById('username-input').value = u;
+}
+
+async function doSync() {
+  const username = document.getElementById('username-input').value.trim();
+  if (!username) { showToast('❌ Enter LeetCode username first', 'error'); return; }
+  saveUsername(username);
+
+  // Try browser-side sync first (works locally, blocked by CORS on GitHub Pages)
+  const btn = document.getElementById('sync-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ ...';
+
+  try {
+    const query = `
+    query sync($username: String!, $limit: Int!) {
+      recentAcSubmissionList(username: $username, limit: $limit) { titleSlug }
+      matchedUser(username: $username) {
+        submitStats { acSubmissionNum { difficulty count } }
+      }
+    }`;
+    const resp = await fetch('https://leetcode.com/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Referer': 'https://leetcode.com/' },
+      body: JSON.stringify({ query, variables: { username, limit: 100 } })
+    });
+    const json = await resp.json();
+
+    if (json.errors) { throw new Error('API error'); }
+
+    const acSlugs = new Set((json.data.recentAcSubmissionList || []).map(s => s.titleSlug));
+    if (acSlugs.size === 0) {
+      btn.disabled = false; btn.textContent = '🔄 Sync';
+      showToast('ℹ️  No recent AC found. Use CLI sync instead (see below).', 'error');
+      showSyncInstructions(username);
+      return;
+    }
+
+    let synced = 0;
+    for (const p of (planData?.problems || [])) {
+      if (progress[p.id]?.status === 'SOLVED' || progress[p.id]?.status === 'MASTERED') continue;
+      if (acSlugs.has(p.titleSlug)) {
+        const td = today();
+        const reviews = {};
+        REVIEW_LABELS.forEach((l, i) => {
+          const d = new Date(); d.setDate(d.getDate() + REVIEW_INTERVALS[i]);
+          reviews[l] = d.toISOString().slice(0, 10);
+        });
+        progress[p.id] = { status: 'SOLVED', solved_date: td, mastery: 1, reviews, notes: '' };
+        synced++;
+      }
+    }
+    saveProgress();
+    showToast(`✅ Synced: ${synced} problems`, 'success');
+    renderAll();
+  } catch (err) {
+    // CORS blocked (GitHub Pages) → show CLI instructions
+    showSyncInstructions(username);
+  }
+  btn.disabled = false;
+  btn.textContent = '🔄 Sync';
+}
+
+function showSyncInstructions(username) {
+  const msg = `
+⚠️ Browser sync blocked by CORS (GitHub Pages limitation).
+
+Sync locally instead:
+
+  cd leetcode-tracker
+  python3 tracker.py config username ${username}
+  python3 tracker.py sync
+
+Then: Export from local → Import here, or just use the local dashboard.
+  `.trim();
+  alert(msg);
+}
+
+// ============ RENDER ============
+function renderAll() { renderStats(); renderProgressBar(); renderTable(); }
+
+function renderStats() {
+  const problems = getProblems();
+  const total = problems.length;
+  const solved = problems.filter(p => p.status === 'SOLVED' || p.status === 'MASTERED').length;
+  const mastered = problems.filter(p => p.status === 'MASTERED').length;
+  const pending = total - solved;
+  let due = 0, overdue = 0;
+  problems.forEach(p => {
+    const rs = getReviewStatus(p);
+    if (rs.status === 'due') due++;
+    else if (rs.status === 'overdue') overdue++;
+  });
+
+  document.getElementById('stats-row').innerHTML = `
+    <div class="stat-card blue"><div class="value">${total}</div><div class="label">Total</div></div>
+    <div class="stat-card green"><div class="value">${solved}</div><div class="label">Solved</div></div>
+    <div class="stat-card"><div class="value" style="color:var(--purple)">${mastered}</div><div class="label">Mastered</div></div>
+    <div class="stat-card yellow"><div class="value">${due}</div><div class="label">Due Today</div></div>
+    <div class="stat-card red"><div class="value">${overdue}</div><div class="label">Overdue</div></div>
+    <div class="stat-card"><div class="value" style="color:var(--muted)">${pending}</div><div class="label">Pending</div></div>
+  `;
+}
+
+function renderProgressBar() {
+  const problems = getProblems();
+  const total = problems.length || 1;
+  const solved = problems.filter(p => p.status === 'SOLVED').length;
+  const mastered = problems.filter(p => p.status === 'MASTERED').length;
+  const pct = Math.round(((solved + mastered) / total) * 100);
+  document.getElementById('progress-text').textContent = `${pct}% (${solved + mastered}/${total})`;
+  document.getElementById('progress-bar').innerHTML = `
+    <div class="seg mastered" style="width:${(mastered / total) * 100}%"></div>
+    <div class="seg done" style="width:${(solved / total) * 100}%"></div>
+    <div class="seg pending" style="width:${100 - ((solved + mastered) / total) * 100}%"></div>
+  `;
+}
+
+function renderTable() {
+  const problems = getProblems();
+  const td = today();
+  let filtered = [...problems];
+
+  if (currentTab === 'due') {
+    filtered = filtered.filter(p => {
+      const rs = getReviewStatus(p);
+      return rs.status === 'due' || rs.status === 'overdue';
+    });
+  }
+
+  if (currentFilter !== 'all') {
+    if (['Easy', 'Medium', 'Hard'].includes(currentFilter)) {
+      filtered = filtered.filter(p => p.difficulty === currentFilter);
+    } else {
+      filtered = filtered.filter(p => p.status === currentFilter);
+    }
+  }
+
+  if (currentTab === 'category') {
+    renderCategoryView(filtered);
+    return;
+  }
+
+  document.getElementById('filters').style.display = 'flex';
+  const tbody = document.getElementById('tbody');
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--muted)">🎉 No problems!</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(p => {
+    const rs = getReviewStatus(p);
+    const url = LEETCODE_BASE + p.titleSlug + '/';
+    const isSolved = p.status === 'SOLVED' || p.status === 'MASTERED';
+    const canReview = rs.status === 'due' || rs.status === 'overdue';
+
+    let reviewHTML = '';
+    REVIEW_LABELS.forEach(l => {
+      const ds = p.reviews?.[l];
+      let cls = 'future';
+      if (ds === 'DONE') cls = 'done';
+      else if (ds) {
+        if (ds < td) cls = 'overdue';
+        else if (ds === td) cls = 'due';
+      }
+      const title = ds && ds !== 'DONE' ? `${l}: ${ds}` : l;
+      let inner = l;
+      if (cls === 'done') inner = '✓';
+      else if (cls === 'overdue') inner = '!';
+      reviewHTML += `<span class="review-dot ${cls}" title="${title}" ${(cls === 'due' || cls === 'overdue') ? `onclick="doReview('${p.id}')"` : ''}>${inner}</span>`;
+    });
+
+    const stars = '★'.repeat(p.mastery || 0) + '☆'.repeat(5 - (p.mastery || 0));
+
+    return `
+      <tr>
+        <td>${p.id}</td>
+        <td><a class="problem-link" href="${url}" target="_blank" rel="noopener">${p.title}</a></td>
+        <td><span class="badge ${p.difficulty}">${p.difficulty}</span></td>
+        <td style="color:var(--muted);font-size:12px">${p.category || '-'}</td>
+        <td><span class="status-badge status-${p.status || 'PENDING'}">${p.status || 'PENDING'}</span></td>
+        <td><span class="mastery-stars">${stars}</span></td>
+        <td><div class="reviews">${reviewHTML}</div></td>
+        <td>
+          <button class="action-btn solved" onclick="markSolved('${p.id}')">${isSolved ? 'Undo' : 'Mark Solved'}</button>
+          ${canReview ? ` <button class="action-btn review" onclick="doReview('${p.id}')">Review ✓</button>` : ''}
+        </td>
+      </tr>`;
+  }).join('');
+}
+
+function renderCategoryView(problems) {
+  document.getElementById('filters').style.display = 'none';
+  const groups = {};
+  problems.forEach(p => {
+    const cat = p.category || 'Uncategorized';
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(p);
+  });
+
+  const td = today();
+  let html = '';
+  for (const [cat, probs] of Object.entries(groups)) {
+    const solved = probs.filter(p => p.status === 'SOLVED' || p.status === 'MASTERED').length;
+    html += `<tr><td colspan="8" style="background:var(--surface);font-weight:600;padding:12px 14px;font-size:13px;">
+      ${cat} &nbsp;<span style="color:var(--muted)">${solved}/${probs.length}</span>
+      <span style="float:right">${'█'.repeat(solved)}${'░'.repeat(probs.length - solved)}</span>
+    </td></tr>`;
+
+    probs.forEach(p => {
+      const rs = getReviewStatus(p);
+      const url = LEETCODE_BASE + p.titleSlug + '/';
+      const isSolved = p.status === 'SOLVED' || p.status === 'MASTERED';
+      const canReview = rs.status === 'due' || rs.status === 'overdue';
+
+      let reviewHTML = '';
+      REVIEW_LABELS.forEach(l => {
+        const ds = p.reviews?.[l];
+        let cls = 'future';
+        if (ds === 'DONE') cls = 'done';
+        else if (ds) {
+          if (ds < td) cls = 'overdue';
+          else if (ds === td) cls = 'due';
+        }
+        const title = ds && ds !== 'DONE' ? `${l}: ${ds}` : l;
+        reviewHTML += `<span class="review-dot ${cls}" title="${title}">${cls === 'done' ? '✓' : cls === 'overdue' ? '!' : l}</span>`;
+      });
+
+      const stars = '★'.repeat(p.mastery || 0) + '☆'.repeat(5 - (p.mastery || 0));
+
+      html += `
+        <tr>
+          <td>${p.id}</td>
+          <td><a class="problem-link" href="${url}" target="_blank" rel="noopener">${p.title}</a></td>
+          <td><span class="badge ${p.difficulty}">${p.difficulty}</span></td>
+          <td style="color:var(--muted);font-size:12px">${p.category || '-'}</td>
+          <td><span class="status-badge status-${p.status || 'PENDING'}">${p.status || 'PENDING'}</span></td>
+          <td><span class="mastery-stars">${stars}</span></td>
+          <td><div class="reviews">${reviewHTML}</div></td>
+          <td>
+            <button class="action-btn solved" onclick="markSolved('${p.id}')">${isSolved ? 'Undo' : 'Mark Solved'}</button>
+            ${canReview ? ` <button class="action-btn review" onclick="doReview('${p.id}')">Review ✓</button>` : ''}
+          </td>
+        </tr>`;
+    });
+  }
+
+  document.getElementById('tbody').innerHTML = html;
+}
+
+// ============ TAB / FILTER ============
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === ['all','due','category'].indexOf(tab)));
+  renderTable();
+}
+
+function setFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  renderTable();
+}
+
+// ============ TOAST ============
+function showToast(msg, type) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.className = `toast ${type} show`;
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ============ INIT ============
+loadUsername();
+loadPlan(planSlug);
+</script>
+</body>
+</html>
