@@ -665,7 +665,7 @@ function renderTable() {
 
   tbody.innerHTML = filtered.map(p => {
     const rs = getReviewStatus(p);
-    const url = LEETCODE_BASE + p.titleSlug + '/';
+    const url = LEETCODE_BASE + p.titleSlug + '/description/?envType=study-plan-v2&envId=top-interview-150';
     const isSolved = p.status === 'SOLVED' || p.status === 'MASTERED';
     const canReview = rs.status === 'due' || rs.status === 'overdue';
 
@@ -724,7 +724,7 @@ function renderCategoryView(problems) {
 
     probs.forEach(p => {
       const rs = getReviewStatus(p);
-      const url = LEETCODE_BASE + p.titleSlug + '/';
+      const url = LEETCODE_BASE + p.titleSlug + '/description/?envType=study-plan-v2&envId=top-interview-150';
       const isSolved = p.status === 'SOLVED' || p.status === 'MASTERED';
       const canReview = rs.status === 'due' || rs.status === 'overdue';
 
